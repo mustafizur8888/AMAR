@@ -66,6 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DbScripts\Sp_GetMainMenuList.sql" />
+    <Content Include="DbScripts\Sp_GetSubMenuList.sql" />
+    <Content Include="DbScripts\SP_Modules.sql" />
+    <Content Include="DbScripts\tblModules.sql" />
     <Content Include="packages.config" />
     <Content Include="Pages\Menu\Modules.aspx" />
     <Content Include="Site.Master" />
@@ -134,6 +138,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Helper.cs" />
+    <Compile Include="Models\MenuHelper.cs" />
     <Compile Include="Pages\Menu\MainMenu.aspx.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

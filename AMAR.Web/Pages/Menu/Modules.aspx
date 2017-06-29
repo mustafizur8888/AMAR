@@ -17,7 +17,7 @@
         <div class="form-group col-lg-offset-1 col-md-offset-1">
             <label for="ddlMenu" class="col-lg-2 col-md-2 control-label text-right">Menu</label>
             <div class="col-lg-4 col-md-6">
-                <asp:DropDownList runat="server" CssClass="form-control" ID="ddlMenu"></asp:DropDownList>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="ddlMenu" AutoPostBack="True" OnSelectedIndexChanged="ddlMenu_OnSelectedIndexChanged"></asp:DropDownList>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="form-group col-lg-offset-1 col-md-offset-1">
             <label for="ddlSubMenu" class="col-lg-2 col-md-2 control-label text-right">Sub-Menu</label>
             <div class="col-lg-4 col-md-6">
-                <asp:DropDownList runat="server" CssClass="form-control" ID="ddlSubMenu"></asp:DropDownList>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="ddlSubMenu" AutoPostBack="True" OnSelectedIndexChanged="ddlSubMenu_OnSelectedIndexChanged"></asp:DropDownList>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
         <div class="form-group col-lg-offset-1 col-md-offset-1">
             <label for="txtRemarks" class="col-lg-2 col-md-2 control-label text-right">Remarks</label>
             <div class="col-lg-4 col-md-6">
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtRemarks"></asp:TextBox>
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtRemarks" TextMode="MultiLine"></asp:TextBox>
             </div>
 
         </div>
@@ -95,5 +95,43 @@
         </div>
     </div>
     <br />
+
+    <div class="row">
+        <div class="col-md-8 col-lg-8 col-sm-12 col-lg-offset-1 col-md-offset-1">
+            <asp:GridView ID="grdModules" runat="server" CssClass="table table-striped table-hover  table-condensed " AutoGenerateColumns="False" GridLines="None">
+                <Columns>
+
+                    <asp:TemplateField HeaderText="Module Code">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblMdCode" Text='<%# Bind("MdCode") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Module Name">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblMdName" Text='<%# Bind("MdName") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Status">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblStatus" Text='<%# Bind("MdStatus") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Action">
+                        <ItemTemplate>
+                            <asp:HiddenField runat="server" ID="hidRefNo" Value='<%# Bind("RefNo") %>' />
+                            <asp:HiddenField runat="server" ID="hidRemarks" Value='<%# Bind("MdRemarks") %>' />
+                            <asp:HiddenField runat="server" ID="hidMdUrl" Value='<%# Bind("MdUrl") %>' />
+                            <div class="btn-group btn-group-sm">
+                                <asp:Button runat="server" CssClass="btn btn-primary btn-sm " Text="Edit" ID="btnEdit" OnClick="btnEdit_OnClick" />
+                                <asp:Button runat="server" CssClass="btn btn-danger  btn-sm" Text="Delete" ID="btnDelete" OnClick="btnDelete_OnClick" />
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                </Columns>
+            </asp:GridView>
+        </div>
+        <asp:HiddenField runat="server" ID="hidRoleID" />
+    </div>
 
 </asp:Content>
