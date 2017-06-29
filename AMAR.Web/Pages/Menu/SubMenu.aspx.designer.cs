@@ -10,7 +10,7 @@
 namespace AMAR.Web.Pages.Menu {
     
     
-    public partial class MainMenu {
+    public partial class SubMenu {
         
         /// <summary>
         /// divError control.
@@ -49,22 +49,31 @@ namespace AMAR.Web.Pages.Menu {
         protected global::System.Web.UI.WebControls.Label lblSuccess;
         
         /// <summary>
-        /// txtMenuCode control.
+        /// txtSmcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMenuCode;
+        protected global::System.Web.UI.WebControls.TextBox txtSmcode;
         
         /// <summary>
-        /// txtMenuName control.
+        /// txtSmName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMenuName;
+        protected global::System.Web.UI.WebControls.TextBox txtSmName;
+        
+        /// <summary>
+        /// ddlMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMenu;
         
         /// <summary>
         /// rdYes control.
@@ -112,13 +121,13 @@ namespace AMAR.Web.Pages.Menu {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// grdMenu control.
+        /// grdSubMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMenu;
+        protected global::System.Web.UI.WebControls.GridView grdSubMenu;
         
         /// <summary>
         /// hidRoleID control.

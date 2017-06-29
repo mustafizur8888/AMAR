@@ -315,5 +315,12 @@ namespace AMAR.Web.Pages.Menu
             }
 
         }
+
+        protected void btnCancel_OnClick(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+      
     }
 }
