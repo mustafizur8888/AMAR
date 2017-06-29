@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Pages\Menu\Modules.aspx" />
     <Content Include="Site.Master" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="Pages\Menu\MainMenu.aspx.designer.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu\Modules.aspx.cs">
+      <DependentUpon>Modules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Menu\Modules.aspx.designer.cs">
+      <DependentUpon>Modules.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

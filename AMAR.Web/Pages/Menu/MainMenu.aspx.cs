@@ -53,6 +53,24 @@ namespace AMAR.Web.Pages.Menu
                 string menuIp = string.Empty;
                 string menuPcMac = string.Empty;
                 string menuPcName = string.Empty;
+
+                if (!string.IsNullOrWhiteSpace(txtMenuCode.Text))
+                {
+                    string query = "Select count(*) from tblMainMenu where MenuCode='" + txtMenuCode.Text + "'";
+                    string value = _db.GetSingelValue(query);
+                    if (!string.IsNullOrEmpty(value) && !txtMenuCode.ReadOnly)
+                    {
+                        if (value != "0")
+                        {
+                            ShowErrorMsg("Menu code already exists" + "<br/>");
+                            return;
+                        }
+
+                    }
+                }
+
+
+
                 try
                 {
                     menuIp = helper.GetIpAddress();
@@ -207,18 +225,7 @@ namespace AMAR.Web.Pages.Menu
             {
                 msg += "Menu name is empty" + "<br>";
             }
-            if (!string.IsNullOrWhiteSpace(txtMenuCode.Text))
-            {
-                string query = "Select count(*) from tblMainMenu where MenuCode='" + txtMenuCode.Text + "'";
-                string value = _db.GetSingelValue(query);
-                if (!string.IsNullOrEmpty(value))
-                {
-                    if (value != "0")
-                    {
-                        msg += "Menu code already exists" + "<br/>";
-                    }
-                }
-            }
+
             if (!string.IsNullOrWhiteSpace(msg))
             {
                 result = false;
