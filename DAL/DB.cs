@@ -36,6 +36,56 @@ namespace DAL
             return GetDataset(query, new List<SqlParameter>());
         }
 
+        public string GetSingelValue(string commandText, List<SqlParameter> parameters)
+        {
+            return GetScallervalue( commandText,  parameters);
+        }
+        public string GetSingelValue(string commandText)
+        {
+            return GetScallervalue( commandText, new List<SqlParameter>());
+        }
+
+
+
+        private string GetScallervalue(string commandText, List<SqlParameter> parameters)
+        {
+
+            string result=string.Empty;
+            using (SqlConnection connection = new SqlConnection(_con))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = commandText;
+
+
+                    if (parameters.Any())
+                    {
+                        foreach (SqlParameter sqlParameter in parameters)
+                        {
+                            command.Parameters.AddWithValue(sqlParameter.ParameterName, sqlParameter.Value);
+                        }
+                        command.CommandType = CommandType.StoredProcedure;
+                    }
+
+                    try
+                    {
+                        connection.Open();
+                        var executeScalar = command.ExecuteScalar();
+                        if (executeScalar != null)
+                            result = executeScalar.ToString();
+
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception(e.Message);
+                    }
+
+                }
+
+            }
+            return result;
+        }
         private DataSet GetDataset(string commandText, List<SqlParameter> parameters)
         {
 
@@ -91,7 +141,7 @@ namespace DAL
                         {
                             command.Parameters.AddWithValue(sqlParameter.ParameterName, sqlParameter.Value);
                         }
-                        command.CommandType=CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
                     }
 
                     try

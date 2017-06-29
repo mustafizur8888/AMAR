@@ -11,6 +11,12 @@ namespace AMAR.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+          
+        }
+        protected void Session_Start(Object sender, EventArgs e)
+        {
+            HttpContext.Current.Session["userName"] = "AAA";
+         
         }
     }
 }
