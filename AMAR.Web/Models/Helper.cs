@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Web;
+using DAL;
 
 namespace AMAR.Web.Models
 {
+    
     public class Helper
     {
 
-        public  string GetMAC()
+
+        private Db _db;
+        public Helper()
+        {
+            _db = new Db();
+        }
+        public string GetMAC()
         {
             string macAddresses = "";
 
@@ -26,14 +36,16 @@ namespace AMAR.Web.Models
         }
 
 
-        public  string GetPcName(HttpRequest request)
+        public string GetPcName(HttpRequest request)
         {
             return (Dns.GetHostEntry(request.ServerVariables["remote_addr"]).HostName);
         }
 
-        public  string GetIpAddress()
+        public string GetIpAddress()
         {
-           return HttpContext.Current.Request.UserHostAddress.ToString();
+            return HttpContext.Current.Request.UserHostAddress.ToString();
         }
+
+       
     }
 }
