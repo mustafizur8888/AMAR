@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DbScripts\Sp_GetMainMenuList.sql" />
+    <Content Include="DbScripts\sp_GetMenuName.sql" />
+    <Content Include="DbScripts\sp_getMenuSubMenuName.sql" />
     <Content Include="DbScripts\Sp_GetSubMenuList.sql" />
     <Content Include="DbScripts\SP_Modules.sql" />
     <Content Include="DbScripts\tblModules.sql" />
