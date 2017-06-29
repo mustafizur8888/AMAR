@@ -23,7 +23,8 @@ namespace AMAR.Web.Pages.Menu
             if (!IsPostBack)
             {
                 loadDropDownMenu();
-                GetSubMenuList();
+                ddlMenu_OnSelectedIndexChanged(null, null);
+               
             }
         }
 
@@ -35,6 +36,11 @@ namespace AMAR.Web.Pages.Menu
                 {
                     Value = "Select",
                     ParameterName = "@Action"
+                },
+                new SqlParameter
+                {
+                    Value = ddlMenu.SelectedValue,
+                    ParameterName = "@MenuRef"
                 }
             };
             DataSet ds = null;
@@ -298,6 +304,11 @@ namespace AMAR.Web.Pages.Menu
         protected void btnCancel_OnClick(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        protected void ddlMenu_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetSubMenuList();
         }
     }
 }

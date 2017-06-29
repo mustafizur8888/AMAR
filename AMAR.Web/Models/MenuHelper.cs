@@ -35,13 +35,25 @@ namespace AMAR.Web.Models
             });
             return ds;
         }
+
         public DataSet GetSubMenuList(string mainMenuRefNo, DropDownValue value)
         {
             DataSet ds = new DataSet();
             ds = _db.GetDataSet("Sp_GetSubMenuList", new List<SqlParameter>
             {
+                new SqlParameter {Value = value.ToString(), ParameterName = "@Type"},
+                new SqlParameter {Value = mainMenuRefNo, ParameterName = "@MainMenuRefNo"}
+            });
+            return ds;
+
+        }
+        public DataSet GetModuleList(string mainMenuRefNo, DropDownValue value)
+        {
+            DataSet ds = new DataSet();
+            ds = _db.GetDataSet("Sp_GetModuleList", new List<SqlParameter>
+            {
                 new SqlParameter{Value = value.ToString(),ParameterName = "@Type" },
-                new SqlParameter{Value = mainMenuRefNo,ParameterName = "@MainMenuRefNo"}
+                new SqlParameter{Value = mainMenuRefNo,ParameterName = "@SubMenuRefNo"}
             });
             return ds;
         }

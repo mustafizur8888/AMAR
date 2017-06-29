@@ -74,6 +74,8 @@
     <Content Include="DbScripts\tblModules.sql" />
     <Content Include="packages.config" />
     <Content Include="Pages\Menu\Modules.aspx" />
+    <Content Include="Pages\Menu\SubMenu.aspx" />
+    <Content Include="Pages\Menu\SubModules.aspx" />
     <Content Include="Site.Master" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -154,6 +156,20 @@
     </Compile>
     <Compile Include="Pages\Menu\Modules.aspx.designer.cs">
       <DependentUpon>Modules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu\SubMenu.aspx.cs">
+      <DependentUpon>SubMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Menu\SubMenu.aspx.designer.cs">
+      <DependentUpon>SubMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu\SubModules.aspx.cs">
+      <DependentUpon>SubModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Menu\SubModules.aspx.designer.cs">
+      <DependentUpon>SubModules.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
