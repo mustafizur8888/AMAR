@@ -75,6 +75,8 @@
     <Content Include="DbScripts\tblModules.sql" />
     <Content Include="DbScripts\tblsubmodules.sql" />
     <Content Include="packages.config" />
+    <Content Include="Pages\Company\CompanyGroup.aspx" />
+    <Content Include="Pages\Company\Company.aspx" />
     <Content Include="Pages\Menu\Modules.aspx" />
     <Content Include="Pages\Menu\SubMenu.aspx" />
     <Content Include="Pages\Menu\SubModules.aspx" />
@@ -145,6 +147,20 @@
     </Compile>
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\MenuHelper.cs" />
+    <Compile Include="Pages\Company\CompanyGroup.aspx.cs">
+      <DependentUpon>CompanyGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Company\CompanyGroup.aspx.designer.cs">
+      <DependentUpon>CompanyGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Company\Company.aspx.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Company\Company.aspx.designer.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Menu\MainMenu.aspx.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
