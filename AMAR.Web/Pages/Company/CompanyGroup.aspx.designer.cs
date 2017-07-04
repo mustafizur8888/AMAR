@@ -49,84 +49,138 @@ namespace AMAR.Web.Pages.Company {
         protected global::System.Web.UI.WebControls.Label lblSuccess;
         
         /// <summary>
-        /// ddlCpGroup control.
+        /// txtCGCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCpGroup;
+        protected global::System.Web.UI.WebControls.TextBox txtCGCode;
         
         /// <summary>
-        /// txtCPWeb control.
+        /// txtCGPerson control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPWeb;
+        protected global::System.Web.UI.WebControls.TextBox txtCGPerson;
         
         /// <summary>
-        /// txtCPCode control.
+        /// txtCGName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPCode;
+        protected global::System.Web.UI.WebControls.TextBox txtCGName;
         
         /// <summary>
-        /// txtCPCell control.
+        /// txtCGEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPCell;
+        protected global::System.Web.UI.WebControls.TextBox txtCGEmail;
         
         /// <summary>
-        /// txtCPName control.
+        /// txtCGCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPName;
+        protected global::System.Web.UI.WebControls.TextBox txtCGCountry;
         
         /// <summary>
-        /// txtCPEmail control.
+        /// txtCGWeb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtCGWeb;
         
         /// <summary>
-        /// txtCPCountry control.
+        /// txtCGAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPCountry;
+        protected global::System.Web.UI.WebControls.TextBox txtCGAddress;
         
         /// <summary>
-        /// txtCpRemarks control.
+        /// txtCGRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCpRemarks;
+        protected global::System.Web.UI.WebControls.TextBox txtCGRemarks;
         
         /// <summary>
-        /// txtCPAddress control.
+        /// txtCGCell control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtCGCell;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// btnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+        
+        /// <summary>
+        /// grdMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdMenu;
+        
+        /// <summary>
+        /// hidRoleID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidRoleID;
     }
 }

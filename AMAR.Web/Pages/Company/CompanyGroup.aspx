@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanyGroup.aspx.cs" 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanyGroup.aspx.cs"
     Inherits="AMAR.Web.Pages.Company.CompanyGroup" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
@@ -16,40 +16,37 @@
     <div class="row">
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="ddlCpGroup" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Group</label>
+                <label for="txtCGCode" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Group Code</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCpGroup" AutoPostBack="True" />
-
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGCode"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPWeb" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Web</label>
+                <label for="txtCGPerson" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Person</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPWeb"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGPerson"></asp:TextBox>
                 </div>
             </div>
         </div>
-
-
     </div>
     <br />
     <div class="row">
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPCode" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Code</label>
+                <label for="txtCGName" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Group Name</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPCode"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGName"></asp:TextBox>
                 </div>
             </div>
 
         </div>
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPCell" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Cell</label>
+                <label for="txtCGEmail" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Email</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPCell"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGEmail"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -60,17 +57,17 @@
 
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPName" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Name</label>
+                <label for="txtCGCountry" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Country</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPName"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGCountry"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPEmail" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Email</label>
+                <label for="txtCGWeb" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Website</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPEmail"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGWeb"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -79,17 +76,17 @@
     <div class="row">
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPCountry" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Country</label>
+                <label for="txtCGAddress" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Address</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPCountry"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGAddress" TextMode="MultiLine"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCpRemarks" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Remarks</label>
+                <label for="txtCGRemarks" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Remarks</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCpRemarks" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGRemarks" TextMode="MultiLine"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -98,9 +95,9 @@
     <div class="row">
         <div class="col-md-6 col-sm-12 col-lg-6">
             <div class="form-group">
-                <label for="txtCPAddress" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Company Address</label>
+                <label for="txtCGCell" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Cell</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCPAddress" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCGCell"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -108,7 +105,52 @@
         </div>
     </div>
     <br />
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-lg-6 col-lg-offset-2 col-md-offset-2" style="padding-left: 2%">
+            <div class="form-group ">
+                <div class="btn-group">
+                    <%--<button type="reset" class="btn btn-danger">Cancel</button>--%>
+                    <asp:Button runat="server" ID="btnCancel" CssClass="btn btn-primary" Text="Cancel" OnClick="btnCancel_OnClick"/>
+                    <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" OnClick="btnSave_OnClick" />
+                    <asp:Button runat="server" ID="btnUpdate" CssClass="btn btn-primary" Text="Update" OnClick="btnUpdate_OnClick"/>
+                    <asp:Button runat="server" ID="btnDelete" CssClass="btn btn-danger" Text="Delete" OnClick="btnDelete_OnClick"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-11 col-lg-11 col-sm-12 col-lg-offset-1 col-md-offset-1">
+            <asp:GridView ID="grdMenu" runat="server" CssClass="table table-striped table-hover  table-condensed " AutoGenerateColumns="False" GridLines="None">
+                <Columns>
 
+                    <asp:TemplateField HeaderText="Menu Code">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblMenuCode" Text='<%# Bind("MenuCode") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Menu Name">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblMenuName" Text='<%# Bind("MenuName") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Status">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblStatus" Text='<%# Bind("MenuStatus") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Action">
+                        <ItemTemplate>
+                            <asp:HiddenField runat="server" ID="hidRefNo" Value='<%# Bind("RefNo") %>' />
+                            <asp:HiddenField runat="server" ID="hidRemarks" Value='<%# Bind("MenuRemarks") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                </Columns>
+            </asp:GridView>
+        </div>
+        <asp:HiddenField runat="server" ID="hidRoleID" />
+    </div>
 
 
 </asp:Content>

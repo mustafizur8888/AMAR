@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using System.Web;
 using DAL;
 
@@ -46,6 +48,15 @@ namespace AMAR.Web.Models
             return HttpContext.Current.Request.UserHostAddress.ToString();
         }
 
-       
+        public static bool IsPhoneNumber(string number)
+        {
+            return number.All(char.IsDigit); 
+            //return Regex.Match(number, @"^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]+\d$").Success;
+        }
+
+        public static bool IsEmail(string email)
+        {
+            return new EmailAddressAttribute().IsValid(email);
+        }
     }
 }
