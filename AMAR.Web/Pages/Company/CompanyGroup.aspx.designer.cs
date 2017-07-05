@@ -130,6 +130,24 @@ namespace AMAR.Web.Pages.Company {
         protected global::System.Web.UI.WebControls.TextBox txtCGCell;
         
         /// <summary>
+        /// rdYes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdYes;
+        
+        /// <summary>
+        /// rdNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdNo;
+        
+        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -148,15 +166,6 @@ namespace AMAR.Web.Pages.Company {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>
@@ -166,13 +175,13 @@ namespace AMAR.Web.Pages.Company {
         protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
-        /// grdMenu control.
+        /// grdCompanyGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMenu;
+        protected global::System.Web.UI.WebControls.GridView grdCompanyGroup;
         
         /// <summary>
         /// hidRoleID control.

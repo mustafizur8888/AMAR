@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanyGroup.aspx.cs"
+﻿<%@ Page Title="Company Group Setup" Language="C#" MasterPageFile="~/Site.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="CompanyGroup.aspx.cs"
     Inherits="AMAR.Web.Pages.Company.CompanyGroup" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
@@ -102,6 +102,20 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-12 col-lg-6">
+            <div class="form-group">
+                <label for="txtRemarks" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">Status</label>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="radio-inline">
+                        <asp:RadioButton runat="server" ID="rdYes" Text="Active" GroupName="rdStatus" Checked="True"></asp:RadioButton>
+                    </div>
+                    <div class="radio-inline">
+                        <asp:RadioButton runat="server" ID="rdNo" Text="InActive" GroupName="rdStatus"></asp:RadioButton>
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
     </div>
     <br />
@@ -110,41 +124,56 @@
             <div class="form-group ">
                 <div class="btn-group">
                     <%--<button type="reset" class="btn btn-danger">Cancel</button>--%>
-                    <asp:Button runat="server" ID="btnCancel" CssClass="btn btn-primary" Text="Cancel" OnClick="btnCancel_OnClick"/>
+                    <asp:Button runat="server" ID="btnCancel" CssClass="btn btn-primary" Text="Cancel" OnClick="btnCancel_OnClick" />
                     <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" OnClick="btnSave_OnClick" />
-                    <asp:Button runat="server" ID="btnUpdate" CssClass="btn btn-primary" Text="Update" OnClick="btnUpdate_OnClick"/>
-                    <asp:Button runat="server" ID="btnDelete" CssClass="btn btn-danger" Text="Delete" OnClick="btnDelete_OnClick"/>
+                    <asp:Button runat="server" ID="btnDelete" CssClass="btn btn-danger" Text="Delete" OnClick="btnDelete_OnClick" />
                 </div>
             </div>
         </div>
     </div>
     <br />
     <div class="row">
-        <div class="col-md-11 col-lg-11 col-sm-12 col-lg-offset-1 col-md-offset-1">
-            <asp:GridView ID="grdMenu" runat="server" CssClass="table table-striped table-hover  table-condensed " AutoGenerateColumns="False" GridLines="None">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <asp:GridView ID="grdCompanyGroup" runat="server" CssClass="table table-striped table-hover  table-condensed " AutoGenerateColumns="False" GridLines="None" OnRowCreated="grdCompanyGroup_OnRowCreated" OnSelectedIndexChanged="grdCompanyGroup_OnSelectedIndexChanged">
                 <Columns>
 
-                    <asp:TemplateField HeaderText="Menu Code">
+                    <asp:TemplateField HeaderText="Group Code">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblMenuCode" Text='<%# Bind("MenuCode") %>' />
+                            <asp:HiddenField runat="server" ID="hideCgRef" Value='<%# Bind("CGRef") %>' />
+                            <asp:Label runat="server" ID="lblCGCode" Text='<%# Bind("CGCode") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Menu Name">
+                    <asp:TemplateField HeaderText="Group Name">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblMenuName" Text='<%# Bind("MenuName") %>' />
+                            <asp:Label runat="server" ID="lblCGName" Text='<%# Bind("CGName") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Status">
+                    <asp:TemplateField HeaderText="Country">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblStatus" Text='<%# Bind("MenuStatus") %>' />
+                            <asp:Label runat="server" ID="lblCGCountry" Text='<%# Bind("CGCountry") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Action">
+                    <asp:TemplateField HeaderText="Contact Person">
                         <ItemTemplate>
-                            <asp:HiddenField runat="server" ID="hidRefNo" Value='<%# Bind("RefNo") %>' />
-                            <asp:HiddenField runat="server" ID="hidRemarks" Value='<%# Bind("MenuRemarks") %>' />
+                            <asp:Label runat="server" ID="lblCGPerson" Text='<%# Bind("CGPerson") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cell">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblCGCell" Text='<%# Bind("CGCell") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblCGEmail" Text='<%# Bind("CGEmail") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Web">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblCGWeb" Text='<%# Bind("CGWeb") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
 
                 </Columns>
             </asp:GridView>
