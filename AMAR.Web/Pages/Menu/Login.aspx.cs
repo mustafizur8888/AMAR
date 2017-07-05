@@ -16,7 +16,7 @@ namespace AMAR.Web.Pages.Menu
         protected void Page_Load(object sender, EventArgs e)
         {
             divError.Visible = false;
-            divSucc.Visible = false;
+            //divSucc.Visible = false;
             if (!IsPostBack)
             {
                
