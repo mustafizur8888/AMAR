@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DbScripts\AMIS_SCripts.sql" />
     <Content Include="DbScripts\spsubmodules.sql" />
     <Content Include="DbScripts\Sp_GetMainMenuList.sql" />
     <Content Include="DbScripts\sp_GetMenuName.sql" />
