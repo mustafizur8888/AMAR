@@ -235,8 +235,10 @@ namespace AMAR.Web.Pages.User
                 DataRow dr = ds.Tables[0].Rows[0];
                 ddlCpCode.Enabled= false;
                 ddlCgCode.Enabled= false;
+                ddlCpCode.Items.FindByText(dr["UserCPCode"].ToString()).Selected = true;
+                ddlCgCode.Items.FindByText(dr["UserCGCode"].ToString()).Selected = true;
                 //txtCGCode.Text = dr["UserCGCode"].ToString();
-               // txtCGName.Text = dr["UserCPCode"].ToString();
+                // txtCGName.Text = dr["UserCPCode"].ToString();
                 txtUserName.Text = dr["UserName"].ToString();
                 txtUserCell.Text = dr["UserCell"].ToString();
                 txtUserEmail.Text = dr["UserEmail"].ToString();
