@@ -24,6 +24,8 @@ $('a[href*="#"]:not([href="#"])').click(function () {
         }
     }
 })
+
+
 function hhh(className) {
 
     hideMenu();
@@ -34,9 +36,21 @@ function hhh(className) {
         appBanners[i].style.display = 'block';
     }
 }
+
 function hideMenu() {
     var hide = $(".navbar-nav li");
     for (var i = 0; i < hide.length; i++) {
         hide[i].style.display = 'none';
     }
 }
+
+(function ($) {
+    $(document).ready(function () {
+        $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).parent().siblings().removeClass('open');
+            $(this).parent().toggleClass('open');
+        });
+    });
+})(jQuery);

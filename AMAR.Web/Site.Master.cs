@@ -36,11 +36,38 @@ namespace AMAR.Web
                     DataSet dsSubmenuu = _db.GetDataSet("EXEC sp_getMenuSubMenuName 'menu','" + dr["RefNo"].ToString() + "'");
                     foreach (DataRow subMenuList in dsSubmenuu.Tables[0].Rows)
                     {
-                        menu += "<li><a href = '#' >" + subMenuList["SMName"] + "</a></li>";
+                        #region upsubmenu
+                        //onlyForUpMenu
                         sideMenu += "<li class='" + dr["RefNo"].ToString() + "' style='display:none'><a href='#'>" +
                                     subMenuList["SMName"] +
                                     "</a></li>";
-                        menuSide.Text = sideMenu;
+                       
+
+                        #endregion
+                        DataSet dsModule = _db.GetDataSet("EXEC sp_geModuleName 'menu','" + subMenuList["RefNo"].ToString() + "'");
+                        if (dsModule != null && dsModule.Tables[0].Rows.Count > 0)
+                        {
+                            menu +=
+                                " <li class='dropdown' onclick=hhh('" + subMenuList["RefNo"].ToString() + "')><a href='#' class='dropdown-toggle' data-toggle='dropdown'>" +
+                                subMenuList["SMName"] + "<b class='caret'></b></a>" +
+                                "<ul class='dropdown-menu'>";
+                            foreach (DataRow dataRow in dsModule.Tables[0].Rows)
+                            {
+                                menu += "<li><a href ='" + dataRow["MdUrl"] + "'>" + dataRow["MdName"] + "</a></li>";
+                                sideMenu += "<li class='" + subMenuList["RefNo"].ToString() + "' style='display:none'><a href='#'>" +
+                                            dataRow["MdName"] +
+                                            "</a></li>";
+
+                            }
+                            menu += " </ul></ li > ";
+                        }
+                        else
+                        {
+                            menu += "<li><a href = '#' >" + subMenuList["SMName"] + "</a></li>";
+                        }
+
+                       // 
+
                     }
                     menu += " </ul>" + "</li>";
                 }
@@ -61,6 +88,7 @@ namespace AMAR.Web
                 }
             }
             menuList.Text = menu;
+            menuSide.Text = sideMenu;
 
         }
     }

@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\login.js" />
+    <Content Include="Content\styleLogin.css" />
     <Content Include="DbScripts\AMIS_SCripts.sql" />
     <Content Include="DbScripts\spsubmodules.sql" />
     <Content Include="DbScripts\SP_CompGroup.sql" />
@@ -80,6 +82,7 @@
     <Content Include="packages.config" />
     <Content Include="Pages\Company\CompanyGroup.aspx" />
     <Content Include="Pages\Company\Company.aspx" />
+    <Content Include="Pages\Menu\Login.aspx" />
     <Content Include="Pages\Menu\Modules.aspx" />
     <Content Include="Pages\Menu\SubMenu.aspx" />
     <Content Include="Pages\Menu\SubModules.aspx" />
@@ -164,6 +167,13 @@
     </Compile>
     <Compile Include="Pages\Company\Company.aspx.designer.cs">
       <DependentUpon>Company.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Menu\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Menu\MainMenu.aspx.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
