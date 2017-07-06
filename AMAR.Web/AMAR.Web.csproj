@@ -76,6 +76,7 @@
     <Content Include="DbScripts\sp_getMenuSubMenuName.sql" />
     <Content Include="DbScripts\Sp_GetSubMenuList.sql" />
     <Content Include="DbScripts\SP_Modules.sql" />
+    <Content Include="DbScripts\SQLQuery2.sql" />
     <Content Include="DbScripts\tblModules.sql" />
     <Content Include="DbScripts\tblsubmodules.sql" />
     <Content Include="packages.config" />
@@ -151,6 +152,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyHelper.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\MenuHelper.cs" />
     <Compile Include="Pages\Company\CompanyGroup.aspx.cs">

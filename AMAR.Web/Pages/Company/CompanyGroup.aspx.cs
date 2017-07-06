@@ -110,6 +110,7 @@ namespace AMAR.Web.Pages.Company
                 if (count > 0)
                 {
                     ShowSuccMsg(txtCGCode.ReadOnly ? "Update Succesfully" : "Save Succesfully");
+                    LoadGrd();
                     Clear();
                 }
             }
@@ -240,6 +241,7 @@ namespace AMAR.Web.Pages.Company
             txtCGRemarks.Text = string.Empty;
             txtCGCode.ReadOnly = false;
             btnSave.Text = "Save";
+            rdYes.Checked = true;
         }
         private void ShowErrorMsg(string msg)
         {
