@@ -54,9 +54,7 @@ namespace AMAR.Web
                             foreach (DataRow dataRow in dsModule.Tables[0].Rows)
                             {
                                 menu += "<li><a href ='" + dataRow["MdUrl"] + "'>" + dataRow["MdName"] + "</a></li>";
-                                sideMenu += "<li class='" + subMenuList["RefNo"].ToString() + "' style='display:none'><a href='#'>" +
-                                            dataRow["MdName"] +
-                                            "</a></li>";
+                               
 
                             }
                             menu += " </ul></ li > ";

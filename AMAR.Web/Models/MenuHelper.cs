@@ -36,6 +36,26 @@ namespace AMAR.Web.Models
             return ds;
         }
 
+        public DataSet GetUserCompanyList(DropDownValue value)
+        {
+            DataSet ds = null;
+            ds = _db.GetDataSet("Sp_GetUserCompnay", new List<SqlParameter>
+            {
+                new SqlParameter { Value = value.ToString(), ParameterName = "@Type" ,DbType = DbType.String},
+                new SqlParameter { Value = "", ParameterName = "@MainMenuRefNo" ,DbType = DbType.String}
+            });
+            return ds;
+        }
+        public DataSet GetUserCGList(DropDownValue value)
+        {
+            DataSet ds = null;
+            ds = _db.GetDataSet("Sp_GetCGList", new List<SqlParameter>
+            {
+                new SqlParameter { Value = value.ToString(), ParameterName = "@Type" ,DbType = DbType.String},
+                new SqlParameter { Value = "", ParameterName = "@MainMenuRefNo" ,DbType = DbType.String}
+            });
+            return ds;
+        }
         public DataSet GetSubMenuList(string mainMenuRefNo, DropDownValue value)
         {
             DataSet ds = new DataSet();
