@@ -240,6 +240,8 @@ namespace AMAR.Web.Pages.User
                 DataRow dr = ds.Tables[0].Rows[0];
                 ddlCpCode.Enabled= false;
                 ddlCgCode.Enabled= false;
+                ddlCpCode.SelectedValue = dr["UserCPRef"].ToString();
+                ddlCgCode.SelectedValue = dr["UserCGRef"].ToString();
                 //ddlCpCode.Items.FindByText(dr["UserCPCode"].ToString()).Selected = true;
                 //ddlCgCode.Items.FindByText(dr["UserCGCode"].ToString()).Selected = true;
                 //txtCGCode.Text = dr["UserCGCode"].ToString();
