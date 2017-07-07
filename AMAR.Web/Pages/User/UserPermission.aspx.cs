@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using AMAR.Web.Models;
 using DAL;
 
@@ -28,9 +24,9 @@ namespace AMAR.Web.Pages.User
             if (!IsPostBack)
             {
                 LoadCompanyGroup();
-                LoadCP();
+                ddlCpGroup_OnSelectedIndexChanged(null, null);
                 LoadMainMenu();
-                ddlCompRefNo_OnSelectedIndexChanged(null, null);
+
                 ddlMenu_OnSelectedIndexChanged(null, null);
             }
         }
@@ -39,7 +35,7 @@ namespace AMAR.Web.Pages.User
         private void LoadCP()
         {
             DataSet ds = null;
-            ds = helper.GetUserCompanyList("",DropDownValue.All);
+            ds = helper.GetUserCompanyList(ddlCpGroup.SelectedValue, DropDownValue.All);
             ddlCompRefNo.DataSource = ds;
             ddlCompRefNo.DataTextField = "CPCode";
             ddlCompRefNo.DataValueField = "CPRef";
@@ -68,6 +64,8 @@ namespace AMAR.Web.Pages.User
         }
         protected void ddlCpGroup_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            LoadCP();
+            ddlCompRefNo_OnSelectedIndexChanged(null, null);
 
         }
         private void LoadCompanyGroup()
@@ -82,12 +80,13 @@ namespace AMAR.Web.Pages.User
         protected void ddlCompRefNo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             GetUserList();
+            ddlUser_OnSelectedIndexChanged(null, null);
         }
 
         protected void ddlMenu_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSubMenu();
-            ddlSubMenu_OnSelectedIndexChanged(null,null);
+            ddlSubMenu_OnSelectedIndexChanged(null, null);
         }
 
         protected void ddlSubMenu_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -122,7 +121,93 @@ namespace AMAR.Web.Pages.User
             };
             DataSet ds = null;
             ds = _db.GetDataSet("Sp_GetUserPermision", sqlParameters);
-
+            grdpermission.DataSource = ds;
+            grdpermission.DataBind();
         }
+
+        protected void btnSave_OnClick(object sender, EventArgs e)
+        {
+            if (Validation())
+            {
+                Helper helper = new Helper();
+                string CGUser = "";
+                string CGPCIP = "";
+                string CGPCName = "";
+
+                string CGPCMac = "";
+               
+
+                try
+                {
+                    CGPCIP = helper.GetIpAddress();
+                }
+                catch (Exception exception)
+                {
+
+                }
+
+                try
+                {
+                    CGPCName = helper.GetPcName(Request);
+                }
+                catch (Exception exception)
+                {
+
+                }
+
+                try
+                {
+                    CGPCName = helper.GetMAC();
+                }
+                catch (Exception exception)
+                {
+
+                }
+
+
+
+            }
+        }
+        private bool Validation()
+        {
+            bool result = true;
+            string msg = string.Empty;
+            if (ddlSubMenu.Items.Count == 0)
+            {
+                msg += "Select a sub-menu" + "<br>";
+            }
+            if (ddlCpGroup.Items.Count == 0)
+            {
+                msg += "Select a company-group" + "<br>";
+            }
+            if (ddlMenu.Items.Count == 0)
+            {
+                msg += "Select a menu" + "<br>";
+
+            }
+            if (ddlUser.Items.Count == 0)
+            {
+                msg += "Select a user" + "<br>";
+
+            }
+
+            if (!string.IsNullOrWhiteSpace(msg))
+            {
+                result = false;
+                ShowErrorMsg(msg);
+            }
+            return result;
+        }
+        private void ShowSuccMsg(string msg)
+        {
+            lblSuccess.Text = msg;
+            divSucc.Visible = true;
+        }
+        private void ShowErrorMsg(string msg)
+        {
+            lblError.Text = msg;
+            divError.Visible = true;
+        }
+
     }
 }

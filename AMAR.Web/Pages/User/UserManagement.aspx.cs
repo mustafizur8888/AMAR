@@ -219,8 +219,8 @@ namespace AMAR.Web.Pages.User
             string UserRef = ((HiddenField)row.FindControl("hideUserRef")).Value;
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new SqlParameter{Value = "SelectRW",ParameterName = "@Action"},
-                new SqlParameter{Value = UserRef,ParameterName = "@UserCGRef"}
+                new SqlParameter{Value = "Select",ParameterName = "@Action"},
+                new SqlParameter{Value = UserRef,ParameterName = "@UserRef"}
             };
             DataSet ds = null;
 

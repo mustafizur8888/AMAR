@@ -134,7 +134,7 @@
         </div>
     </div>
     <br />
-    <br />
+   
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
             <asp:GridView ID="grdUserList" runat="server" CssClass="table table-striped table-hover  table-condensed " AutoGenerateColumns="False" GridLines="None" OnRowCreated="grdUserList_OnRowCreated" OnSelectedIndexChanged="grdUserList_OnSelectedIndexChanged">
