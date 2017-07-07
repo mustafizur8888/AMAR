@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" MasterPageFile="~/Site.Master" Inherits="AMAR.Web.Pages.User.UserManagement" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false"  CodeBehind="UserManagement.aspx.cs" MasterPageFile="~/Site.Master" Inherits="AMAR.Web.Pages.User.UserManagement" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
