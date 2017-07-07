@@ -156,7 +156,7 @@ namespace AMAR.Web.Pages.User
         }
         protected void btnDelete_OnClick(object sender, EventArgs e)
         {
-            if (!ddlCgCode.Enabled)
+            if (ddlCgCode.Enabled)
             {
                 ShowErrorMsg("Select a row to delete");
             }
@@ -171,7 +171,7 @@ namespace AMAR.Web.Pages.User
                 int count = 0;
                 try
                 {
-                    count = _db.ExecuteNonQuery("SP_CompGroup", sqlParameters);
+                    count = _db.ExecuteNonQuery("SP_Users", sqlParameters);
                 }
                 catch (Exception exception)
                 {
