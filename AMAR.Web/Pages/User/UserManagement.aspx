@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label for="ddlCpGroup" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">User CG Code</label>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCgCode" AutoPostBack="True" />
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCgCode" AutoPostBack="True" OnSelectedIndexChanged="ddlCgCode_OnSelectedIndexChanged" />
 
                 </div>
             </div>
