@@ -23,10 +23,12 @@ namespace AMAR.Web.Pages.User
         {
             divError.Visible = false;
             divSucc.Visible = false;
+
+            loadCP();
+            loadCG();
             if (!IsPostBack)
             {
-                loadCG();
-                loadCP();
+                
                 LoadGrd();
             }
 
@@ -47,8 +49,8 @@ namespace AMAR.Web.Pages.User
             DataSet ds = null;
             ds = helper.GetUserCGList(DropDownValue.All);
             ddlCgCode.DataSource = ds;
-            ddlCgCode.DataTextField = "CGName";
-            ddlCgCode.DataValueField = "CGCode";
+            ddlCgCode.DataTextField = "CGCode";
+            ddlCgCode.DataValueField = "CGRef";
             ddlCgCode.DataBind();
         }
 
@@ -64,7 +66,7 @@ namespace AMAR.Web.Pages.User
                 string CGCode = String.Empty;
                 string CGRef = String.Empty;
                 string CPcode = String.Empty;
-                string CPRef = String.Empty;
+                string CPRef = ddlCpCode.SelectedValue, ParameterName;
                 string UserName = txtUserName.Text;
                 string UserPassword = txtpwd.Text;
                 string UserEmail = txtUserEmail.Text;
@@ -112,11 +114,11 @@ namespace AMAR.Web.Pages.User
                     new SqlParameter{Value = ddlCpCode.Enabled?"Insert": "Update",ParameterName = "@Action"},
                     new SqlParameter{Value = ddlCgCode.SelectedValue.ToString(),ParameterName = "@UserCGRef"},
                     new SqlParameter{Value = ddlCgCode.SelectedItem.Text,ParameterName = "@UserCGCode"},
-                    new SqlParameter{Value =ddlCpCode.SelectedValue,ParameterName = "@UserCPRef"},
+                    new SqlParameter{Value = CPRef,ParameterName = "@UserCPRef",},
                     new SqlParameter{Value = ddlCpCode.SelectedItem.Text,ParameterName = "@UserCPCode"},
                     new SqlParameter{Value = txtUserCode.Text,ParameterName = "@UserCode"},
                     new SqlParameter{Value = txtUserName.Text,ParameterName = "@UserName"},
-                    new SqlParameter{Value = txtUserCode.Text,ParameterName = "@UserPW"},
+                    new SqlParameter{Value = txtpwd.Text,ParameterName = "@UserPW"},
                     new SqlParameter{Value = txtUserCell.Text,ParameterName = "@UserCell"},
                     new SqlParameter{Value = txtUserEmail.Text,ParameterName = "@UserEmail"},
                     new SqlParameter{Value = UserPCIP,ParameterName = "@UserPCIP"},
@@ -213,7 +215,7 @@ namespace AMAR.Web.Pages.User
         protected void grdUserList_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             var row = grdUserList.SelectedRow;
-            string UserRef = ((HiddenField)row.FindControl("UserRef")).Value;
+            string UserRef = ((HiddenField)row.FindControl("hideUserRef")).Value;
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
                 new SqlParameter{Value = "Select",ParameterName = "@Action"},
@@ -276,13 +278,17 @@ namespace AMAR.Web.Pages.User
             {
                 msg += "Password is empty" + "<br>";
             }
-            if (string.IsNullOrWhiteSpace(txtUserEmail.Text))
+            if (!string.IsNullOrWhiteSpace(txtUserEmail.Text))
             {
                 if (!Helper.IsEmail(txtUserEmail.Text))
                 {
                     msg += "Email address is not valid" + "<br>";
 
                 }
+            }
+            else
+            {
+                msg += "Email address is empty" + "<br>";
             }
             if (string.IsNullOrWhiteSpace(txtUserCode.Text))
             {
