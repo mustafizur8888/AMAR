@@ -21,6 +21,8 @@ namespace AMAR.Web.Pages.User
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            divError.Visible = false;
+            divSucc.Visible = false;
             if (!IsPostBack)
             {
                 loadCG();
@@ -240,6 +242,7 @@ namespace AMAR.Web.Pages.User
                 //txtCGCode.Text = dr["UserCGCode"].ToString();
                 // txtCGName.Text = dr["UserCPCode"].ToString();
                 txtUserName.Text = dr["UserName"].ToString();
+
                 txtUserCell.Text = dr["UserCell"].ToString();
                 txtUserEmail.Text = dr["UserEmail"].ToString();
                 txtUserCode.Text = dr["UserCode"].ToString();
