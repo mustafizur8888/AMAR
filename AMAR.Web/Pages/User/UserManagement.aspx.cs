@@ -127,7 +127,7 @@ namespace AMAR.Web.Pages.User
                     new SqlParameter{Value = UserStatus,ParameterName = "@UserStatus"},
                     new SqlParameter{Value = txtCpRemarks.Text,ParameterName = "@UserRemarks"}
                 };
-
+                
 
                 int count = _db.ExecuteNonQuery("SP_Users", sqlParameters);
                 if (count > 0)
