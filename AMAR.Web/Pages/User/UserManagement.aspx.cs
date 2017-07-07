@@ -23,10 +23,12 @@ namespace AMAR.Web.Pages.User
         {
             divError.Visible = false;
             divSucc.Visible = false;
+
+          
             if (!IsPostBack)
             {
-                loadCP();
                 loadCG();
+                ddlCgCode_OnSelectedIndexChanged(null, null);
                 LoadGrd();
             }
 
@@ -35,7 +37,7 @@ namespace AMAR.Web.Pages.User
         private void loadCP()
         {
             DataSet ds = null;
-            ds = helper.GetUserCompanyList(DropDownValue.All);
+            ds = helper.GetUserCompanyList(ddlCgCode.SelectedValue,DropDownValue.All);
             ddlCpCode.DataSource = ds;
             ddlCpCode.DataTextField = "CPCode";
             ddlCpCode.DataValueField = "CPRef";
@@ -77,7 +79,7 @@ namespace AMAR.Web.Pages.User
                 string UserPCName = "";
 
                 string UserPCMac = "";
-                string UserStatus = rdYes.Checked ? "Active" : "InActive"; ;
+                string UserStatus = rdYes.Checked ? "Active" : "InActive";
 
                 try
                 {
@@ -217,7 +219,7 @@ namespace AMAR.Web.Pages.User
             string UserRef = ((HiddenField)row.FindControl("hideUserRef")).Value;
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new SqlParameter{Value = "Select",ParameterName = "@Action"},
+                new SqlParameter{Value = "SelectRW",ParameterName = "@Action"},
                 new SqlParameter{Value = UserRef,ParameterName = "@UserCGRef"}
             };
             DataSet ds = null;
@@ -238,8 +240,8 @@ namespace AMAR.Web.Pages.User
                 DataRow dr = ds.Tables[0].Rows[0];
                 ddlCpCode.Enabled= false;
                 ddlCgCode.Enabled= false;
-                ddlCpCode.Items.FindByText(dr["UserCPCode"].ToString()).Selected = true;
-                ddlCgCode.Items.FindByText(dr["UserCGCode"].ToString()).Selected = true;
+                //ddlCpCode.Items.FindByText(dr["UserCPCode"].ToString()).Selected = true;
+                //ddlCgCode.Items.FindByText(dr["UserCGCode"].ToString()).Selected = true;
                 //txtCGCode.Text = dr["UserCGCode"].ToString();
                 // txtCGName.Text = dr["UserCPCode"].ToString();
                 txtUserName.Text = dr["UserName"].ToString();
@@ -320,5 +322,9 @@ namespace AMAR.Web.Pages.User
             divError.Visible = true;
         }
 
+        protected void ddlCgCode_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadCP();
+        }
     }
 }

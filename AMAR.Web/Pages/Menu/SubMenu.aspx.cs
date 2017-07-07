@@ -204,15 +204,19 @@ namespace AMAR.Web.Pages.Menu
             }
             if (!string.IsNullOrWhiteSpace(txtSmcode.Text))
             {
-                string query = "Select count(*) from tblSubMenu where SMCode='" + txtSmcode.Text + "'";
-                string value = _db.GetSingelValue(query);
-                if (!string.IsNullOrEmpty(value))
+                if (txtSmcode.Enabled == false)
                 {
-                    if (value != "0")
+                    string query = "Select count(*) from tblSubMenu where SMCode='" + txtSmcode.Text + "'";
+                    string value = _db.GetSingelValue(query);
+                    if (!string.IsNullOrEmpty(value))
                     {
-                        msg += "SubMenu code already exists" + "<br/>";
+                        if (value != "0")
+                        {
+                            msg += "SubMenu code already exists" + "<br/>";
+                        }
                     }
                 }
+             
             }
             if (!string.IsNullOrWhiteSpace(msg))
             {

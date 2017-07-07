@@ -36,13 +36,13 @@ namespace AMAR.Web.Models
             return ds;
         }
 
-        public DataSet GetUserCompanyList(DropDownValue value)
+        public DataSet GetUserCompanyList(string cgref,DropDownValue value)
         {
             DataSet ds = null;
             ds = _db.GetDataSet("Sp_GetUserCompnay", new List<SqlParameter>
             {
                 new SqlParameter { Value = value.ToString(), ParameterName = "@Type" ,DbType = DbType.String},
-                new SqlParameter { Value = "", ParameterName = "@MainMenuRefNo" ,DbType = DbType.String}
+                new SqlParameter { Value = cgref, ParameterName = "@MainMenuRefNo" ,DbType = DbType.String}
             });
             return ds;
         }

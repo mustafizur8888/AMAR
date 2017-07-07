@@ -39,7 +39,7 @@ namespace AMAR.Web.Pages.User
         private void LoadCP()
         {
             DataSet ds = null;
-            ds = helper.GetUserCompanyList(DropDownValue.All);
+            ds = helper.GetUserCompanyList("",DropDownValue.All);
             ddlCompRefNo.DataSource = ds;
             ddlCompRefNo.DataTextField = "CPCode";
             ddlCompRefNo.DataValueField = "CPRef";
