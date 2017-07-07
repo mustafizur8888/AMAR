@@ -49,6 +49,20 @@
             </div>
         </div>
     </div>
+    <br /> 
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <div class="form-group">
+                <label for="ddlUser" class="col-lg-4 col-md-4 col-sm-12 control-label text-right">User</label>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlUser" AutoPostBack="True" OnSelectedIndexChanged="ddlUser_OnSelectedIndexChanged" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-6">
+         
+        </div>
+    </div>
     <br />  
    
 

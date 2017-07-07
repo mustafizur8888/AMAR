@@ -156,6 +156,7 @@
     <Compile Include="Models\CompanyHelper.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\MenuHelper.cs" />
+    <Compile Include="Models\UserHelper.cs" />
     <Compile Include="Pages\Company\CompanyGroup.aspx.cs">
       <DependentUpon>CompanyGroup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
