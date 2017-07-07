@@ -28,7 +28,7 @@ namespace AMAR.Web.Pages.User
             loadCG();
             if (!IsPostBack)
             {
-                
+
                 LoadGrd();
             }
 
