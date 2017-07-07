@@ -295,6 +295,19 @@ namespace AMAR.Web.Pages.User
             {
                 msg += "User Code is empty" + "<br>";
             }
+            else
+            {
+                string query = "Select count(*) from tblUsers where UserCode='" + txtUserCode.Text + "'";
+                    string value = _db.GetSingelValue(query);
+                    if (!string.IsNullOrEmpty(value))
+                    {
+                        if (value != "0")
+                        {
+                            msg += "User Code already exists" + "<br/>";
+                        }
+                    }
+                
+            }
             if (string.IsNullOrWhiteSpace(txtUserCell.Text))
             {
                 msg += "User Cell number is empty" + "<br>";
