@@ -134,6 +134,7 @@ namespace AMAR.Web.Pages.User
                 {
                     ShowSuccMsg(ddlCpCode.Enabled ? "Save Succesfully" : "Update Succesfully");
                     Clear();
+                    LoadGrd();
                 }
             }
         }
