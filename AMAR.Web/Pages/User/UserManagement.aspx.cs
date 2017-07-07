@@ -114,16 +114,16 @@ namespace AMAR.Web.Pages.User
                     new SqlParameter{Value = ddlCgCode.SelectedItem.Text,ParameterName = "@UserCGCode"},
                     new SqlParameter{Value =ddlCpCode.SelectedValue,ParameterName = "@UserCPRef"},
                     new SqlParameter{Value = ddlCpCode.SelectedItem.Text,ParameterName = "@UserCPCode"},
-                    new SqlParameter{Value = txtUserCode,ParameterName = "@UserCode"},
-                    new SqlParameter{Value = txtUserName,ParameterName = "@UserName"},
-                    new SqlParameter{Value = txtUserCode,ParameterName = "@UserPW"},
-                    new SqlParameter{Value = txtUserCell,ParameterName = "@UserCell"},
-                    new SqlParameter{Value = txtUserEmail,ParameterName = "@UserEmail"},
+                    new SqlParameter{Value = txtUserCode.Text,ParameterName = "@UserCode"},
+                    new SqlParameter{Value = txtUserName.Text,ParameterName = "@UserName"},
+                    new SqlParameter{Value = txtUserCode.Text,ParameterName = "@UserPW"},
+                    new SqlParameter{Value = txtUserCell.Text,ParameterName = "@UserCell"},
+                    new SqlParameter{Value = txtUserEmail.Text,ParameterName = "@UserEmail"},
                     new SqlParameter{Value = UserPCIP,ParameterName = "@UserPCIP"},
                     new SqlParameter{Value = UserPCName,ParameterName = "@UserPCName"},
                     new SqlParameter{Value = UserPCMac,ParameterName = "@UserMac"},
                     new SqlParameter{Value = UserStatus,ParameterName = "@UserStatus"},
-                    new SqlParameter{Value = txtCpRemarks,ParameterName = "@UserRemarks"}
+                    new SqlParameter{Value = txtCpRemarks.Text,ParameterName = "@UserRemarks"}
                 };
 
 
