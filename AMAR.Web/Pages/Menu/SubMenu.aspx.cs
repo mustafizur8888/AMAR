@@ -72,110 +72,114 @@ namespace AMAR.Web.Pages.Menu
 
         protected void btnSave_OnClick(object sender, EventArgs e)
         {
-            Helper helper = new Helper();
+            if (Validation())
+            {
+                Helper helper = new Helper();
 
-            string SubmenuCode = txtSmcode.Text;
-            string SubmenuName = txtSmName.Text;
-            string remarks = txtRemarks.Text;
-            string menuIp = string.Empty;
-            string menuPcMac = string.Empty;
-            string menuPcName = string.Empty;
-      
-            try
-            {
-                menuIp = helper.GetIpAddress();
-            }
-            catch (Exception exception)
-            {
-                menuIp = "pc Ip getting error";
-            }
+                string SubmenuCode = txtSmcode.Text;
+                string SubmenuName = txtSmName.Text;
+                string remarks = txtRemarks.Text;
+                string menuIp = string.Empty;
+                string menuPcMac = string.Empty;
+                string menuPcName = string.Empty;
 
-            try
-            {
-                menuPcName = helper.GetPcName(Request);
-            }
-            catch (Exception exception)
-            {
-                menuPcName = "pc name not found";
-            }
-
-            try
-            {
-                menuPcMac = helper.GetMAC();
-            }
-            catch (Exception exception)
-            {
-                menuPcMac = "pc mac not found";
-            }
-            string status = rdYes.Checked ? "Active" : "InActive";
-            List<SqlParameter> sqlParameters = new List<SqlParameter>
-            {
-                new SqlParameter
+                try
                 {
-                    Value = txtSmcode.ReadOnly?"Update": "Insert",
-                    ParameterName = "@Action"
-                },
-                new SqlParameter
+                    menuIp = helper.GetIpAddress();
+                }
+                catch (Exception exception)
                 {
-                    Value = SubmenuCode,
-                    ParameterName = "@SubMenuCode"
-                },
-                new SqlParameter
-                {
-                    Value = SubmenuName,
-                    ParameterName = "@SubMenuName"
-                },
-                new SqlParameter
-                {
-                    Value = "",
-                    ParameterName = "@SMUser"
-                },
-                new SqlParameter
-                {
-                    Value =ddlMenu.SelectedItem.Text,
-                    ParameterName = "@MenuCode"
-                },
-                new SqlParameter
-                {
-                    Value = ddlMenu.SelectedValue.ToUpper(),
-                    ParameterName = "@MenuRef"
-                },
-                new SqlParameter
-                {
-                    Value = menuIp,
-                    ParameterName = "@SMPCIP"
-                },
-                new SqlParameter
-                {
-                    Value = menuPcName,
-                    ParameterName = "@SMPCName"
-                },
-                new SqlParameter
-                {
-                    Value = menuPcMac,
-                    ParameterName = "@SMPCMac"
-                },
-                new SqlParameter
-                {
-                    Value = status,
-                    ParameterName = "@SMStatus"
-                },
-                new SqlParameter
-                {
-                    Value = remarks,
-                    ParameterName = "@SMRemarks"
+                    menuIp = "pc Ip getting error";
                 }
 
-            };
-            int count = _db.ExecuteNonQuery("SP_SubMenu", sqlParameters);
-            if (count > 0)
-            {
-                ShowSuccMsg(txtSmcode.ReadOnly?"Updated Successfully":"Saved Successfully");
-                Clear();
-                loadDropDownMenu();
-                GetSubMenuList();
+                try
+                {
+                    menuPcName = helper.GetPcName(Request);
+                }
+                catch (Exception exception)
+                {
+                    menuPcName = "pc name not found";
+                }
 
+                try
+                {
+                    menuPcMac = helper.GetMAC();
+                }
+                catch (Exception exception)
+                {
+                    menuPcMac = "pc mac not found";
+                }
+                string status = rdYes.Checked ? "Active" : "InActive";
+                List<SqlParameter> sqlParameters = new List<SqlParameter>
+                {
+                    new SqlParameter
+                    {
+                        Value = txtSmcode.ReadOnly?"Update": "Insert",
+                        ParameterName = "@Action"
+                    },
+                    new SqlParameter
+                    {
+                        Value = SubmenuCode,
+                        ParameterName = "@SubMenuCode"
+                    },
+                    new SqlParameter
+                    {
+                        Value = SubmenuName,
+                        ParameterName = "@SubMenuName"
+                    },
+                    new SqlParameter
+                    {
+                        Value = "",
+                        ParameterName = "@SMUser"
+                    },
+                    new SqlParameter
+                    {
+                        Value =ddlMenu.SelectedItem.Text,
+                        ParameterName = "@MenuCode"
+                    },
+                    new SqlParameter
+                    {
+                        Value = ddlMenu.SelectedValue.ToUpper(),
+                        ParameterName = "@MenuRef"
+                    },
+                    new SqlParameter
+                    {
+                        Value = menuIp,
+                        ParameterName = "@SMPCIP"
+                    },
+                    new SqlParameter
+                    {
+                        Value = menuPcName,
+                        ParameterName = "@SMPCName"
+                    },
+                    new SqlParameter
+                    {
+                        Value = menuPcMac,
+                        ParameterName = "@SMPCMac"
+                    },
+                    new SqlParameter
+                    {
+                        Value = status,
+                        ParameterName = "@SMStatus"
+                    },
+                    new SqlParameter
+                    {
+                        Value = remarks,
+                        ParameterName = "@SMRemarks"
+                    }
+
+                };
+                int count = _db.ExecuteNonQuery("SP_SubMenu", sqlParameters);
+                if (count > 0)
+                {
+                    ShowSuccMsg(txtSmcode.ReadOnly ? "Updated Successfully" : "Saved Successfully");
+                    Clear();
+                    loadDropDownMenu();
+                    GetSubMenuList();
+
+                }
             }
+         
         }
 
         private void Clear()
