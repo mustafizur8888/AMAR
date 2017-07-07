@@ -87,6 +87,7 @@
     <Content Include="Pages\Menu\SubMenu.aspx" />
     <Content Include="Pages\Menu\SubModules.aspx" />
     <Content Include="Pages\User\UserManagement.aspx" />
+    <Content Include="Pages\User\UserPermission.aspx" />
     <Content Include="Site.Master" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="Pages\User\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\UserPermission.aspx.cs">
+      <DependentUpon>UserPermission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\UserPermission.aspx.designer.cs">
+      <DependentUpon>UserPermission.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

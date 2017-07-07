@@ -46,7 +46,7 @@ namespace AMAR.Web.Pages.User
             ds = helper.GetUserCGList(DropDownValue.All);
             ddlCgCode.DataSource = ds;
             ddlCgCode.DataTextField = "CGName";
-            ddlCgCode.DataValueField = "CGCode";
+            ddlCgCode.DataValueField = "CGRef";
             ddlCgCode.DataBind();
         }
 
