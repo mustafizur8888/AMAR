@@ -24,11 +24,11 @@ namespace AMAR.Web.Pages.User
             divError.Visible = false;
             divSucc.Visible = false;
 
-            loadCP();
-            loadCG();
+          
             if (!IsPostBack)
             {
-
+                loadCP();
+                loadCG();
                 LoadGrd();
             }
 
@@ -79,7 +79,7 @@ namespace AMAR.Web.Pages.User
                 string UserPCName = "";
 
                 string UserPCMac = "";
-                string UserStatus = rdYes.Checked ? "Active" : "InActive"; ;
+                string UserStatus = rdYes.Checked ? "Active" : "InActive";
 
                 try
                 {
