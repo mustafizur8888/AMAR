@@ -278,7 +278,11 @@ namespace AMAR.Web.Pages.User
             }
             if (string.IsNullOrWhiteSpace(txtUserEmail.Text))
             {
-                msg += "Email is empty" + "<br>";
+                if (!Helper.IsEmail(txtUserEmail.Text))
+                {
+                    msg += "Email address is not valid" + "<br>";
+
+                }
             }
             if (string.IsNullOrWhiteSpace(txtUserCode.Text))
             {
