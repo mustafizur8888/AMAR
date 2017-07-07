@@ -23,12 +23,10 @@ namespace AMAR.Web.Pages.User
         {
             divError.Visible = false;
             divSucc.Visible = false;
-
-            loadCP();
-            loadCG();
             if (!IsPostBack)
             {
-
+                loadCP();
+                loadCG();
                 LoadGrd();
             }
 
@@ -134,6 +132,7 @@ namespace AMAR.Web.Pages.User
                 {
                     ShowSuccMsg(ddlCpCode.Enabled ? "Save Succesfully" : "Update Succesfully");
                     Clear();
+                    LoadGrd();
                 }
             }
         }
