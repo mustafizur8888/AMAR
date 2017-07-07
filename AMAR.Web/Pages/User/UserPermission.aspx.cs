@@ -30,6 +30,7 @@ namespace AMAR.Web.Pages.User
                 LoadCompanyGroup();
                 LoadCP();
                 LoadMainMenu();
+                ddlCompRefNo_OnSelectedIndexChanged(null, null);
                 ddlMenu_OnSelectedIndexChanged(null, null);
             }
         }
@@ -80,16 +81,47 @@ namespace AMAR.Web.Pages.User
         }
         protected void ddlCompRefNo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-
+            GetUserList();
         }
 
         protected void ddlMenu_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSubMenu();
+            ddlSubMenu_OnSelectedIndexChanged(null,null);
         }
 
         protected void ddlSubMenu_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            LoadGride();
+        }
+
+        private void GetUserList()
+        {
+            UserHelper userHelper = new UserHelper();
+            DataSet dataSet = userHelper.GetUserList(ddlCpGroup.SelectedValue, ddlCompRefNo.SelectedValue);
+            ddlUser.DataSource = dataSet;
+            ddlUser.DataTextField = "UserName";
+            ddlUser.DataValueField = "UserRef";
+            ddlUser.DataBind();
+
+        }
+        protected void ddlUser_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadGride();
+        }
+
+        private void LoadGride()
+        {
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter{Value = ddlSubMenu.SelectedValue,ParameterName = "@SMRef"},
+                new SqlParameter{Value =ddlMenu.SelectedValue,ParameterName = "@MMRef"},
+                new SqlParameter{Value = ddlUser.SelectedValue,ParameterName = "@userRef"},
+                new SqlParameter{Value = ddlCpGroup.SelectedValue,ParameterName = "@UserCGRef"},
+                new SqlParameter{Value = ddlCompRefNo.SelectedValue,ParameterName = "@UserCPRef"},
+            };
+            DataSet ds = null;
+            ds = _db.GetDataSet("Sp_GetUserPermision", sqlParameters);
 
         }
     }
