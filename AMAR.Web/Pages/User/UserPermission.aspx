@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserPermission.aspx.cs" Inherits="AMAR.Web.Pages.User.UserPermission" %>
+﻿<%@ Page Title="User Permission" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserPermission.aspx.cs" Inherits="AMAR.Web.Pages.User.UserPermission" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -89,42 +89,42 @@
                     <asp:TemplateField HeaderText="Insert">
                         <ItemTemplate>
                           
-                                <asp:CheckBox runat="server" CssClass="text-center" ID="Insert" Checked='<%# bool.Parse(Eval("Insert").ToString() == "Y" ? "True": "False") %>' />
+                                <asp:CheckBox runat="server" CssClass="text-center" ID="Insert" Checked='<%# bool.Parse(Eval("Insert").ToString() == "1" ? "True": "False") %>' />
                     
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Update">
                         <ItemTemplate>
                          
-                                <asp:CheckBox runat="server" ID="Update" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Update").ToString() == "Y" ? "True": "False") %>' />
+                                <asp:CheckBox runat="server" ID="Update" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Update").ToString() == "1" ? "True": "False") %>' />
                             
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Delete">
                         <ItemTemplate>
                             
-                                <asp:CheckBox runat="server" ID="Delete" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Delete").ToString() == "Y" ? "True": "False") %>' />
+                                <asp:CheckBox runat="server" ID="Delete" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Delete").ToString() == "1" ? "True": "False") %>' />
                           
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Select">
                         <ItemTemplate>
                              
-                                <asp:CheckBox runat="server" CssClass="text-center"  ID="Select" Checked='<%# bool.Parse(Eval("Select").ToString() == "Y" ? "True": "False") %>' />
+                                <asp:CheckBox runat="server" CssClass="text-center"  ID="Select" Checked='<%# bool.Parse(Eval("Select").ToString() == "1" ? "True": "False") %>' />
                            
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Import">
                         <ItemTemplate>
                            
-                                <asp:CheckBox runat="server" ID="Import" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Import").ToString() == "Y" ? "True": "False") %>' />
+                                <asp:CheckBox runat="server" ID="Import" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Import").ToString() == "1" ? "True": "False") %>' />
                           
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Export">
                         <ItemTemplate>
                            
-                                <asp:CheckBox runat="server" ID="Export" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Export").ToString() == "Y" ? "True": "False") %>' />
+                                <asp:CheckBox runat="server" ID="Export" CssClass="text-center"  Checked='<%# bool.Parse(Eval("Export").ToString() == "1" ? "True": "False") %>' />
                             
                         </ItemTemplate>
                     </asp:TemplateField>

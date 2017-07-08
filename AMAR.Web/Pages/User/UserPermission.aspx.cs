@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 using AMAR.Web.Models;
 using DAL;
 
@@ -131,15 +132,13 @@ namespace AMAR.Web.Pages.User
             {
                 Helper helper = new Helper();
                 string CGUser = "";
-                string CGPCIP = "";
+                string pcip = "";
                 string CGPCName = "";
 
                 string CGPCMac = "";
-               
-
                 try
                 {
-                    CGPCIP = helper.GetIpAddress();
+                    pcip = helper.GetIpAddress();
                 }
                 catch (Exception exception)
                 {
@@ -163,6 +162,55 @@ namespace AMAR.Web.Pages.User
                 {
 
                 }
+                bool insert;
+                bool Update;
+                bool Delete;
+                bool Select;
+                bool Import;
+                bool Export;
+                string RefNo;
+                int count = 0;
+                foreach (GridViewRow row in grdpermission.Rows)
+                {
+                    var sqlParameters = new List<SqlParameter>();
+                    insert = ((CheckBox)row.FindControl("Insert")).Checked;
+                    Update = ((CheckBox)row.FindControl("Update")).Checked;
+                    Delete = ((CheckBox)row.FindControl("Delete")).Checked;
+                    Select = ((CheckBox)row.FindControl("Select")).Checked;
+                    Import = ((CheckBox)row.FindControl("Import")).Checked;
+                    Export = ((CheckBox)row.FindControl("Export")).Checked;
+
+                    sqlParameters.Add(new SqlParameter { Value = ((HiddenField)row.FindControl("hideMRefNo")).Value, ParameterName = "@ModuleRefNo" });
+                    sqlParameters.Add(new SqlParameter { Value = ddlCompRefNo.SelectedValue, ParameterName = "@CompRefNo" });
+                    sqlParameters.Add(new SqlParameter { Value = ddlUser.SelectedValue, ParameterName = "@UserRefNo" });
+                    sqlParameters.Add(new SqlParameter { Value = pcip, ParameterName = "@PCIP" });
+                    sqlParameters.Add(new SqlParameter { Value = CGPCName, ParameterName = "@PCName" });
+                    sqlParameters.Add(new SqlParameter { Value = CGPCMac, ParameterName = "@PCMac" });
+                    sqlParameters.Add(new SqlParameter { Value = "", ParameterName = "@CUser" });
+                    sqlParameters.Add(new SqlParameter { Value = insert, ParameterName = "@Insert" });
+                    sqlParameters.Add(new SqlParameter { Value = Update, ParameterName = "@Update" });
+                    sqlParameters.Add(new SqlParameter { Value = Delete, ParameterName = "@Delete" });
+                    sqlParameters.Add(new SqlParameter { Value = Select, ParameterName = "@Select" });
+                    sqlParameters.Add(new SqlParameter { Value = Import, ParameterName = "@Import" });
+                    sqlParameters.Add(new SqlParameter { Value = Export, ParameterName = "@Export" });
+                    sqlParameters.Add(new SqlParameter { Value = ddlSubMenu.SelectedValue, ParameterName = "@SMRef" });
+                    sqlParameters.Add(new SqlParameter { Value = ddlMenu.SelectedValue, ParameterName = "@MMRef" });
+                    sqlParameters.Add(new SqlParameter { Value = ddlCpGroup.SelectedValue, ParameterName = "@CPCGRef" });
+
+                    if (_db.ExecuteNonQuery("Sp_UserPermission", sqlParameters)>0)
+                    {
+                        count++;
+                    }
+
+             
+
+
+                }
+                if (count>0)
+                {
+                    ShowSuccMsg("Save successfully");
+                }
+                LoadGride();
 
 
 

@@ -75,10 +75,14 @@
     <Content Include="DbScripts\sp_GetMenuName.sql" />
     <Content Include="DbScripts\sp_getMenuSubMenuName.sql" />
     <Content Include="DbScripts\Sp_GetSubMenuList.sql" />
+    <Content Include="DbScripts\SP_GetUserList.sql" />
+    <Content Include="DbScripts\Sp_GetUserPermision.sql" />
     <Content Include="DbScripts\SP_Modules.sql" />
+    <Content Include="DbScripts\Sp_UserPermission.sql" />
     <Content Include="DbScripts\SQLQuery2.sql" />
     <Content Include="DbScripts\tblModules.sql" />
     <Content Include="DbScripts\tblsubmodules.sql" />
+    <Content Include="DbScripts\tblUserPer.sql" />
     <Content Include="packages.config" />
     <Content Include="Pages\Company\CompanyGroup.aspx" />
     <Content Include="Pages\Company\Company.aspx" />
